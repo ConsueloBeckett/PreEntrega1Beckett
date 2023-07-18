@@ -1,11 +1,36 @@
-import { Heading } from "@chakra-ui/react"
+import React from 'react'
+import { useState, useEffect} from 'react'
+import { ItemCount } from '../ItemCount/ItemCount'
+import  ItemList  from "../ItemList/ItemList";
+import { getProducts } from '../../MockAsync';
 
-const ItemListContainer = ({greeting}) => {
+const ItemListContainer = () => {
+ const [products, setProducts] = useState([]);
+const url = "./products.json";
 
-return (
-    <Heading>{greeting}</Heading>
-)
+ const getProducts = async () => {  
+    try {
+    const products = await fetch(url);
+    const resp = await products.json();
+    setProducts(resp);
+    return resp; 
+ }  catch (error) {
+    console.log(error);
+ }}
+ 
+useEffect(() => {
+    getProducts();
+},[]);
+
+ return (
+<div>
+    
+    <ItemList products={products}/>
+    <ItemCount initial={1} stock={20} onAdd={(quantity) => ('')}/>
+</div>
+
+ )
 
 }
 
-export {ItemListContainer}
+export default ItemListContainer
