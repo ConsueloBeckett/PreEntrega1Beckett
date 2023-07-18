@@ -21,7 +21,7 @@ const ItemDetailContainer = () => {
         console.log(error)
         }
     }
-}
+
 
      useEffect(() => {
         getProducts()
@@ -29,12 +29,12 @@ const ItemDetailContainer = () => {
  
 const items = products.find((products) => products.category === Number(paramsItem.id))
 
-if(loading){
-  return (
-    <div><ItemDetail products={items}/></div>
-  )
-}
 
+  return (
+    <div>{loading ? "please wait" : <ItemDetail products={items}/>}</div>
+  )
+  
+  }
 
 
 export default ItemDetailContainer

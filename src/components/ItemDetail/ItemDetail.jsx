@@ -7,7 +7,7 @@ const ItemDetail = ({products}) => {
     <h2 className="ItemCard__title">{products.nombre}</h2>
     </header>
     <picture>
-        <img src={img} className="ItemCard__img" />
+        <img src={products.img} className="ItemCard__img" alt="imagen producto" />
     </picture>
     <section className="ItemCard__body">
         <p className="ItemCard__text">
@@ -27,4 +27,4 @@ const ItemDetail = ({products}) => {
   )
 }
 
-export default ItemDetail
+export {ItemDetail}

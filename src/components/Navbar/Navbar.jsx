@@ -12,8 +12,8 @@ const NavBar = () => {
      <HStack>
          
         <Link  to="/" px={4} h={8}>Inicio</Link>
-        <Link  to="/fruta" px={4} h={8}>Fruta</Link>
-        <Link to="/verdura" px={4} h={8}>Verdura</Link>
+        <Link  to="/item/:id" px={4} h={8}>Productos</Link>
+        <Link to="/category/:categoryId" px={4} h={8}>Categoria</Link>
         
         <CardWidget />
         </HStack>
